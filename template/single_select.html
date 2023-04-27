@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>select only single data</h1>
+        <form action="{% url 'insert_webpage' %}" method="POST">
+            {% csrf_token %}
+            <select name="topic" id="topic">
+                {% for a in topic %}
+                    <option value="{{a}}">{{a.topic_name}}</option>
+                {% endfor %}
+            </select> <br><br>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name"><br><br>
+            <label for="mail">Email</label>
+            <input type="email" name="mail" id="mail"><br><br>
+            <label for="url">URL</label>
+            <input type="url" name="url" id="url"><br><br>
+            <input type="submit" value="inser_webpage">
+        </form>
+    </center>
+</body>
+</html>
